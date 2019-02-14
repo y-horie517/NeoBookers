@@ -2,16 +2,20 @@ class BooksController < ApplicationController
 	def new
 		@book = Book.new
 	end
-
+# createビューはないのでindexに記載
 	def create
 		@book = Book.new(book_params)
 		@book.user_id = current_user.id
 		@book.save
-		redirect_to book_path
+		flash[:notice] = "Book was successfully created."
+		# リダイレクト先は仮の場所
+		redirect_to books_path
 	end
 
 	def index
-		@book = Book.all
+		@books = Book.all
+		@book = Book.new
+		
 	end
 
 	def show
