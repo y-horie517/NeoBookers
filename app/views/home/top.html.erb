@@ -1,0 +1,19 @@
+<!-- <h1>Home#top</h1> -->
+<!-- <p>Find me in app/views/home/top.html.erb</p> -->
+
+
+<!-- flashメッセージ入れる -->
+
+<h2>welcome to <strong>Bookers</strong>!!</h2>
+
+<P>In <strong>Bookers</strong>,<br>
+	you can share and exchange your opinions, inpressions, and<br>
+	emotinos<br>
+	<br>
+	about various books!
+</P>
+
+<!-- 必要に応じてリンクに指定されたクラス名追加する -->
+ <%= link_to 'Log in', user_session_path, class: "btn btn-info" %>
+ 
+ <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-success" %>

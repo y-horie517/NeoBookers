@@ -9,7 +9,17 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
   <body>
-    <%= yield %>
+    <div class="header" id="header">
+      <p>ヘッダ領域</p>
+    </div>
+
+   <%= yield %>
+    
+    <footer>
+      <p>CopyRight Infratop.inc</p>
+    </footer>
+
   </body>
 </html>
