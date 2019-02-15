@@ -9,4 +9,11 @@ class User < ApplicationRecord
 		# rememberable	クッキーにログイン情報を保持
 		# trackable	サインイン回数・時刻・IPアドレスを保存
 		# validatable	メールアドレスとパスワードのバリデーション
+
+ #以下を追加
+  validates :username, presence: true, uniqueness: true, length: {maximum: 20}
+
+
+
+	has_many :book, dependent: :destroy
 end
