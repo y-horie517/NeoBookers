@@ -15,5 +15,8 @@ class User < ApplicationRecord
 
 
 
-	has_many :book, dependent: :destroy
+  has_many :book, dependent: :destroy
+
+#refile用 
+  attachment :profile_image
 end

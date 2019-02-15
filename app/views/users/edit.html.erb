@@ -1,0 +1,15 @@
+<h2>User info</h2>
+
+<%= form_for(@user) do |f| %>
+	<label>Name</label><br>
+	<%= f.text_field :username, placeholder: current_user.username, class: "" %><br><br>
+
+	<label>Image</label><br>
+	<%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "" %><br>
+
+	<label>Introduction</label><br>
+	<%= f.text_field :Introduction, placeholder: "", class: "" %><br><br>
+
+	<%= f.submit "Update User" %>
+
+<% end %>

@@ -1,12 +1,18 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-lg-3">
+		<div class="col-md-3">
 			<h2>User info</h2>
+			<%= attachment_image_tag @user, :profile_image,  format: 'jpeg', class: "", fallback: "no_image.jpg", size: "100x100" %>
+			<br>
+			<br>
 			<label class="">name</label>
-			<%= current_user.name %>
-			<!-- nameはまだ登録していないため非表示 -->
-
+			<%= current_user.username %>
+			<br>
+			<label class="">introduction</label>
+			<%= current_user.Introduction %>
+			<br>
+			<%= link_to 'edit', edit_user_path(@user), class: "btn btn-info" %>
 
 			<h2>New Book</h2>
 
@@ -22,7 +28,8 @@
 			    <%= f.submit "Create Book", class:"btn btn-info" %>
 			<% end %>
 		</div>
-		<div class="col-lg-9">
+
+		<div class="col-md-9">
 			<table class="table table-striped">
 				<thead>
 					<tr>
