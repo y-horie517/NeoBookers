@@ -12,6 +12,7 @@ before_action :authenticate_user!
 
   	@users = User.all
   	@book = Book.new
+    @user = current_user
   end
 
   def edit
@@ -20,8 +21,13 @@ before_action :authenticate_user!
 
   def update
   	@user = User.find(params[:id])
-  	@user.update(user_params)
-  	redirect_to user_path(@user.id), notice: t('edit successfully !')
+  	if @user.update(user_params)
+      flash[:notice] = 'User info was edited successfully !'
+    else
+      flash[:warning] = 'edit error!'
+    end
+
+  	redirect_to user_path(@user.id)
   end
 
   private

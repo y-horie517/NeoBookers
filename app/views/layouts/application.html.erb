@@ -70,9 +70,12 @@
       </ul>
     </header>
 
-    <!-- エラー・成功メッセージ -->
+    <!-- エラー・成功メッセージ b-->
     <% if flash[:notice] %>
-       <p><%= flash[:notice] %></p>
+       <p class="alert alert-success"><%= flash[:notice] %></p>
+    <% end %>
+    <% if flash[:warning] %>
+       <p class="alert alert-danger"><%= flash[:warning] %></p>
     <% end %>
 
     <!--本文  -->
