@@ -1,6 +1,9 @@
 class BooksController < ApplicationController
 
 before_action :authenticate_user!
+# editは正しいユーザでなくては遷移できなくする。
+before_action :correct_user, only: [:edit, :update]
+
 
 	def new
 		@book = Book.new
@@ -61,5 +64,15 @@ before_action :authenticate_user!
 	private
 		def book_params
 			params.require(:book).permit(:title, :opinion, :image)
+		end
+
+		def correct_user
+		  book = Book.find(params[:id])
+		  user = User.find(book.user_id)
+		  
+		  if current_user != user
+   		  	 flash[:warning] = "page error."
+		     redirect_to root_path
+		  end
 		end
 end

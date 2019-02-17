@@ -2,13 +2,13 @@
 
 <%= form_for(@user) do |f| %>
 	<label>Name</label><br>
-	<%= f.text_field :username, placeholder: current_user.username, class: "" %><br><br>
+	<%= f.text_field :username, placeholder: current_user.username, class: "name" %><br><br>
 
 	<label>Image</label><br>
-	<%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "" %><br>
+	<%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user_image" %><br>
 
 	<label>Introduction</label><br>
-	<%= f.text_field :Introduction, placeholder: "", class: "" %><br><br>
+	<%= f.text_field :Introduction, placeholder: "", class: "introduction" %><br><br>
 
 	<%= f.submit "Update User" %>
 

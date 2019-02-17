@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
 before_action :authenticate_user!
+# 編集画面表示、修正内容の更新アクション実行時はログインしているユーザーの場合のみ実行可とする。
+before_action :correct_user, only: [:edit, :update]
 
   def show
   	@user = User.find(params[:id])
@@ -33,6 +35,14 @@ before_action :authenticate_user!
   private
   def user_params
   	params.require(:user).permit(:username, :profile_image, :Introduction)
+  end
+
+  def correct_user
+    user = User.find(params[:id])
+    if current_user != user
+      flash[:warning] = "page error."
+      redirect_to root_path
+    end
   end
 
 end

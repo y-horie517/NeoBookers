@@ -3,16 +3,17 @@
 
 	<%= form_for(@book) do |f| %>
 		<label>Title</label><br>
-		<%= f.text_field :title, placeholder: @book.title, class: "btn-block" %><br>
+		<%= f.text_field :title, placeholder: @book.title, class: "book_title btn-block" %><br>
 
 		<label>Opinion</label><br>
-		<%= f.text_area :opinion, placeholder: @book.opinion, class: "btn-block" %><br>
+		<%= f.text_area :opinion, placeholder: @book.opinion, class: "book_body btn-block" %><br>
 		
 		<%= f.submit 'Update Book', class: "btn btn-primary btn-block" %>
-	<% end %>
+	
 	<br>
-		<%= link_to 'show', book_path(@book), class: "" %>
+		<%= link_to 'show', book_path(@book), class: "book_#{@book.id}" %>
 		 | 
-		<%= link_to 'back', books_path, class: "" %>
+		<%= link_to 'back', books_path, class: "back" %>
+	<% end %>
 	
 </div>

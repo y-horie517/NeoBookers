@@ -19,7 +19,7 @@
 
 <!-- ログイン中のユーザの編集ボタンは表示されないようにする -->
 			<% if current_user.id == user.id %>
-				<%= link_to edit_user_path(current_user.id), class: "btn btn-info btn-block" do %>
+				<%= link_to edit_user_path(current_user.id), class: "edit_user_#{user.id} btn btn-info btn-block" do %>
 					<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 				<% end %>
 			<% end %>	
@@ -37,6 +37,6 @@
 				<br>
 				<br>
 				<br>
-			    <%= f.submit "Create Book", class:"btn btn-primary btn-block" %>
+			    <%= f.submit "Create Book", class: "btn btn-primary btn-block" %>
 			<% end %>
 		</div>
