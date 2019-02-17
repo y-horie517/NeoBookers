@@ -43,7 +43,8 @@ before_action :authenticate_user!
 			flash[:notice] = "Book was successfully edited."
 			redirect_to book_path(@book.id)
 		else
-			render :new
+			flash[:warning] = "Edit error."
+			render :edit
 		end
 	end
 

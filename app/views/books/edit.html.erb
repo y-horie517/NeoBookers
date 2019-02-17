@@ -1,18 +1,18 @@
-<div class="col-md-6 col-mk-offset-3">
+<div class="col-md-4 col-md-offset-4">
 	<h2>Editing Book</h2>
 
 	<%= form_for(@book) do |f| %>
 		<label>Title</label><br>
-		<%= f.text_field :title, placeholder: @book.title, class: "" %><br><br>
+		<%= f.text_field :title, placeholder: @book.title, class: "btn-block" %><br>
 
 		<label>Opinion</label><br>
-		<%= f.text_area :Opinion, placeholder: @book.opinion, class: "" %><br><br>
-		<%= link_to 'Update Book', book_path(@book), :method => patch:, class: "btn btn-info" %>
-
-		<%= link_to 'show', book_path(@book), class: "" %>
-		' | '
-		<%= link_to 'back', books_path, class: "" %>
-
-
+		<%= f.text_area :opinion, placeholder: @book.opinion, class: "btn-block" %><br>
+		
+		<%= f.submit 'Update Book', class: "btn btn-primary btn-block" %>
 	<% end %>
+	<br>
+		<%= link_to 'show', book_path(@book), class: "" %>
+		 | 
+		<%= link_to 'back', books_path, class: "" %>
+	
 </div>
