@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+
+before_action :authenticate_user!
+
 	def new
 		@book = Book.new
 	end
@@ -8,8 +11,7 @@ class BooksController < ApplicationController
 		@book.user_id = current_user.id
 		@book.save
 		flash[:notice] = "Book was successfully created."
-		# リダイレクト先は仮の場所
-		redirect_to books_path
+		redirect_to book_path(@book.id)
 	end
 
 	def index
@@ -25,6 +27,6 @@ class BooksController < ApplicationController
 
 	private
 		def book_params
-			params.require(:book).permit(:title, :opinion)
+			params.require(:book).permit(:title, :opinion, :image)
 		end
 end

@@ -1,41 +1,22 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-3">
-			<h2>User info</h2>
-			<label class="">name</label>
-			<%= current_user.username %>
-			<!-- nameはまだ登録していないため非表示 -->
-
-
-			<h2>New Book</h2>
-
-			<%= form_for(@book) do |f| %>
-			    <label class="">Title</label>
-			    <br>
-			    <%= f.text_field :title, class:"book_title" %>
-				<br>
-			    <label class="">Opinion</label>
-			    <br>
-			    <%= f.text_area :opinion, class:"book_body" %>
-				<br>
-			    <%= f.submit "Create Book", class:"btn btn-info" %>
-			<% end %>
-		</div>
+		<%= render 'users/sidebar', book: @book %>
 
 		<div class="col-md-9">
 			<table class="table table-striped">
+				<h2>Users</h2>
 				<thead>
 					<tr>
-						<th width="100px">image</th>
-						<th width="250px">name</th>
-						<th width="250px"></th>
+						<th width="100px">Image</th>
+						<th width="250px">Name</th>
+						<th width="400px"></th>
 					</tr>
 				</thead>
 				<tbody>
 					<% @users.each do |user| %>
 					<tr>
-						<td>ユーザ画像</td>
+						<td><%= attachment_image_tag user, :profile_image,  format: 'jpeg', class: "", fallback: "no_image.jpg", size: "60x70"%></td>
 						<td><%= user.username %></td>
 						<td><%= link_to 'show', user_path(user), class: "user_#{user.id}" %></td>
 					</tr>

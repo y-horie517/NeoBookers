@@ -1,0 +1,51 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<h2>User info</h2>
+			<%= attachment_image_tag @user, :profile_image,  format: 'jpeg', class: "", fallback: "no_image.jpg", size: "50x50" %>
+			<br>
+			<br>
+			<label class="">name</label>
+			<%= current_user.username %>
+			<br>
+			<label class="">introduction</label>
+			<%= current_user.Introduction %>
+			<br>
+			<%= link_to 'edit', edit_user_path(current_user.id), class: "btn btn-info" %>
+
+			<h2>New Book</h2>
+
+			<%= form_for(@book) do |f| %>
+			    <label class="">Title</label>
+			    <br>
+			    <%= f.text_field :title, class:"book_title" %>
+				<br>
+			    <label class="">Opinion</label>
+			    <br>
+			    <%= f.text_area :opinion, class:"book_body" %>
+				<br>
+			    <%= f.submit "Create Book", class:"btn btn-info" %>
+			<% end %>
+		</div>
+
+		<div class="col-md-9">
+			<h2>Book Detail</h2>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th width="100px"></th>
+						<th width="250px">Title</th>
+						<th width="500px">Opinion</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= attachment_image_tag @book.user, :profile_image,  format: 'jpeg', class: "", fallback: "no_image.jpg", size: "100x100"%></td></td>
+						<td><%= @book.title %></td>
+						<td><%= @book.opinion %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,12 +1,15 @@
 class UsersController < ApplicationController
+
+before_action :authenticate_user!
+
   def show
   	@user = User.find(params[:id])
   	@book = Book.new
-  	# 下は変更の必要あり
-  	@books = Book.all
+  	@books = @user.book.reverse_order
   end
 
   def index
+
   	@users = User.all
   	@book = Book.new
   end
@@ -18,7 +21,7 @@ class UsersController < ApplicationController
   def update
   	@user = User.find(params[:id])
   	@user.update(user_params)
-  	redirect_to user_path(@user.id)
+  	redirect_to user_path(@user.id), notice: t('edit successfully !')
   end
 
   private
