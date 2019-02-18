@@ -11,7 +11,7 @@ class User < ApplicationRecord
 		# validatable	メールアドレスとパスワードのバリデーション
 
  #以下を追加
-  validates :username, presence: true, uniqueness: true, length: {minimun:2, maximum: 20}
+  validates :username, presence: true, uniqueness: true, length: {in: 2..20}
   validates :Introduction, length: {maximum: 50}
 
 
