@@ -22,12 +22,12 @@
 						<!-- ログインユーザの投稿のみ編集・削除フォームが表示せれるようにする -->
 						<td>
 							<% if current_user.id == @book.user.id %>
-								<%= link_to 'edit', edit_book_path, class: "edit_book#{@book.id} btn btn-info" %>
+								<%= link_to 'edit', edit_book_path, class: "edit_book_#{@book.id} btn btn-info" %>
 							<% end %>
 						</td>
 						<td>
 							<% if current_user.id == @book.user.id %>
-								<%= link_to 'destroy', book_path(@book), :method => :delete, data: { confirm: '削除しますか？' } , class: "destroy_book#{@book.id} btn btn-danger" %>
+								<%= link_to 'destroy', book_path(@book), :method => :delete, data: { confirm: '削除しますか？' } , class: "destroy_book_#{@book.id} btn btn-danger" %>
 							<% end %>
 						</td>
 					</tr>
